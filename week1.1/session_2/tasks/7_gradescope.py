@@ -3,9 +3,9 @@
 # You are going to write a very simple program:
 
 # Ask a user to enter two numbers (one per input)
-num1 = input("please enter a number")
+num1 = input("please enter a number ")
 
-num2 = input("please enter another number")
+num2 = input("please enter another number ")
 # multiply those numbers together
 
 try:
