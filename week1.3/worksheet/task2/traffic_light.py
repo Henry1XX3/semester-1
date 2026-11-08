@@ -4,15 +4,43 @@ By submitting this code you are declaring that all work in this file, other than
 Name: 
 """
 
-states = { "red":4, "red_amber":3, "green":5, "amber":3 }
+try:
+    states = { "red":4, "red_amber":3, "green":5, "amber":3 }
 
-systime = 0
-maxtime = int(input())  # read an integer number of steps (>0)
+    systime = 0
+    maxtime = int(input())  # read an integer number of steps (>0)
 
-state = "red"
+    state = "red"
 
-print(f"Time {systime:03} State {state}")
+    notChanged = True
 
-# Simulate the traffic light system up to time=maxtime in 1-second steps
+    # Simulate the traffic light system up to time=maxtime in 1-second steps
+    for i in range(maxtime + 1):
+        duration = states.get(state)
+        count = 0
+        notChanged = True
+        while notChanged and systime <= maxtime:
+            count += 1
+            if systime == 0:
+                duration += 1
+            if (count) % (duration) == 0:
+                if state == "red":
+                    state = "red_amber"
+                    notChanged = False
+                elif state == "red_amber":
+                    state = "green"
+                    notChanged = False
+                elif state == "green":
+                    state = "amber"
+                    notChanged = False
+                elif state == "amber":
+                    state = "red"
+                    notChanged = False
+            print(f"Time {systime:03} State {state}")
 
-# At the end of each step you should output the time and state using the statement on line 14
+            systime += 1
+
+    # At the end of each step you should output the time and state using the statement on line 14
+
+except:
+    print("Invalid input. Please enter a positive integer.")

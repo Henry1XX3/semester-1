@@ -11,6 +11,9 @@
 
 def currency_converter(amount, from_currency, to_currency):
 
+    if amount < 0:
+        return 0.0
+
     conversion_rate = {
         'GBP': {'CNY': 9.24, 'PHP': 75.00, 'INR': 109.06},
         'CNY': {'GBP': 0.11, 'PHP': 8.12, 'INR': 11.81},
@@ -19,8 +22,17 @@ def currency_converter(amount, from_currency, to_currency):
     }
 
     # your code here
+    #*gets the specific conversation number for the currencies given
+    conversionNumber = conversion_rate.get(from_currency, {}).get(to_currency)
 
-    return None
+    #*converting the given amount to the new currency
+    amountConverted = amount * conversionNumber
+
+    #*rounding the converted amount to 2 decimal places
+    amountConverted = round(amountConverted, 2)
+
+    #*returning the converted amount
+    return amountConverted
 
 # Submit only this file currency_converter.py with the completed function.
 
