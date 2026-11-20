@@ -39,13 +39,21 @@ df = pd.DataFrame(temp_data)
 
 # using matplotlib plot the 3 data sets: (tempmin,temp,tempmax) as line graphs
 
-df.plot()
-
-plt.show()
 
 # annotate the graph with axis labels
+df.plot()
+plt.xlabel("Day")
+plt.ylabel("Temperature (F)")
+plt.show()
 
 # note that temperature is in Farenheit (F)
 # convert to Celcius before plotting 
+for i in ["tempmax", "tempmin", "temp"]:
+    df.loc[:, i] = (df.loc[:, i] - 32) * 5/9
 
+df.plot()
+plt.xlabel("Day")
+plt.ylabel("Temperature (C)")
+plt.show()
 # using the documentation explore other data, eg. rainfall  
+
