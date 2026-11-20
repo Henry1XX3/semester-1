@@ -51,6 +51,7 @@ plt.show()
 for i in ["tempmax", "tempmin", "temp"]:
     df.loc[:, i] = (df.loc[:, i] - 32) * 5/9
 
+#plotting everything
 df.plot()
 plt.xlabel("Day")
 plt.ylabel("Temperature (C)")
