@@ -1,9 +1,11 @@
-
 import httpx
+import random
 
 base_url = "https://dummyjson.com/"
 
-content = "posts/1"
+
+#trying to get it to return the number of products which mention "apple"
+content = "products/search?title=Apple"  # API request
 
 url = base_url + content  # API request
 
