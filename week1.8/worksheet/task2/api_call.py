@@ -30,6 +30,9 @@ errors when i change the the API request"""
 #print(difficulties)
 
 #testing the code given in the question
+"""
 for i in range(0,100):
     temp = random.choice([k for k in range(3,21,2)])
     print(temp)
+"""
+
